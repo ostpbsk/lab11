@@ -1,0 +1,39 @@
+.custom-navbar {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2rem;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+
+.custom-nav-link {
+  font-size: 1.3rem;
+  padding: 0.5rem 1rem;
+  margin: 0 1rem;
+  color: #ffffff;
+  position: relative;
+  transition: color 0.3s ease-in-out;
+}
+
+.custom-nav-link:hover {
+  color: #b3b3b3 !important;
+}
+
+.custom-nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #b3b3b3;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.custom-nav-link:hover::after,
+.custom-nav-link.active::after {
+  width: 100%;
+}

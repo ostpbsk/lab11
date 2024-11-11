@@ -1,0 +1,72 @@
+
+.hero-section {
+    background: url(../../../media/hero.jpg) no-repeat center center;
+    background-size: cover;
+    min-height: 93vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    animation: fadeInBackground 2s ease-out forwards;
+  }
+  
+  @keyframes fadeInBackground {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .hero-content {
+    animation: floatText 5s ease-in-out infinite;
+  }
+  
+  .animated-heading, .animated-subtext {
+    position: relative;
+  }
+  
+  .animated-heading {
+    font-size: 3.5rem;
+    font-weight: bold;
+    animation: float 3s ease-in-out infinite alternate;
+  }
+  
+  .animated-subtext {
+    animation: float 3s ease-in-out infinite alternate;
+    animation-delay: 1s;
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    100% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  .animated-button {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .animated-button:hover {
+    transform: scale(1.05);
+  }
+  
+  .animated-button:active {
+    transform: scale(1.1);
+  }
+  
+  /* Animation for Cards and FeaturedSection */
+.animated-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-slide-in {
+  opacity: 1;
+  transform: translateY(0);
+}
