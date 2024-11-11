@@ -1,26 +1,26 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import Catalog from './components/Catalog/Catalog';
 import Home from './components/Home/Home';
 import Cart from './components/Cart/Cart';
-import Checkout from './components/Cart/Checkout/Checkout';
-import Success from './components/Cart/Success/Success';
-import { ItemProvider } from './components/Catalog/ItemPage/context/ItemContext'; // Import ItemProvider
+import Login from './components/Auth/Login/Login';
+import Register from './components/Auth/Registration/Registration';
+import ProtectedRoute from './components/Auth/ProtectedRoute';
+import { ItemContext, ItemProvider } from './components/Catalog/ItemPage/context/ItemContext';
 
 const App = () => {
   return (
-    <ItemProvider>  {/* Wrap entire Router with ItemProvider */}
-      <Router>
-        <Navbar /> {/* Navbar no longer needs its own Router */}
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/catalog/*" element={<Catalog />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/checkout" element={<Checkout />} /> 
-          <Route path="/success" element={<Success />} /> 
-        </Routes>
-      </Router>
+    <ItemProvider>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+        <Route path="/catalog" element={<ProtectedRoute><Catalog /></ProtectedRoute>} />
+        <Route path="/cart" element={<ProtectedRoute><Cart /></ProtectedRoute>} />
+      </Routes>
+    </Router>
     </ItemProvider>
   );
 };

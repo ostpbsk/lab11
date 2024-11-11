@@ -46,7 +46,6 @@ const Catalog = () => {
   }, [searchText, selectedGenre, selectedRelease, selectedArtist]);
 
   return (
-    <ItemProvider>
       <div className="catalog-container">
         {!isItemPage && <Topbar />} {}
         <div className="catalog-header">
@@ -64,7 +63,6 @@ const Catalog = () => {
         )}
         <Footer />
       </div>
-    </ItemProvider>
   );
 };
 

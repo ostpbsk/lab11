@@ -1,8 +1,15 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom"; 
 import "./Navbar.css";
 
 const Navbar = () => {
+  const navigate = useNavigate(); 
+
+  const handleSignOut = () => {
+    localStorage.removeItem("email");
+    navigate("/login"); 
+  };
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark custom-navbar">
       <div className="container-fluid">
@@ -38,6 +45,7 @@ const Navbar = () => {
               </NavLink>
             </li>
           </ul>
+          <button onClick={handleSignOut} className="btn btn-outline-secondary">Sign Out</button>
         </div>
       </div>
     </nav>
